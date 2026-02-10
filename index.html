@@ -2,144 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="গ্রামীণ-WiFi - আপনার স্থানীয় মিডিয়া সার্ভার থেকে কন্টেন্ট ডাউনলোড করুন">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>গ্রামীণ-WiFi - ডাউনলোড কেন্দ্র</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#effff0',
-                            100: '#d9fde0',
-                            200: '#b7fbc8',
-                            300: '#81f8a9',
-                            400: '#45ee8a',
-                            500: '#1dd86e',  // More vibrant green
-                            600: '#13bd5d',  // More vibrant green
-                            700: '#0f9d4e',  // More vibrant green
-                            800: '#0e7d41',  // More vibrant green
-                            900: '#0c6436',  // More vibrant green
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-primary-50 min-h-screen flex flex-col">
+<body>
     <!-- Header -->
-    <header class="bg-gradient-to-r from-primary-500 to-primary-600 shadow-lg sticky top-0 z-10">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-6">
+    <header class="header">
+        <div class="container header-container">
             <a href="https://morshedkoli.github.io/gpwifi/" class="logo-link" aria-label="গ্রামীণ-WiFi Home">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center font-bold text-primary-600 text-xl shadow-md">গ্রা</div>
-                    <div>
-                        <h1 class="text-xl font-bold text-white m-0">গ্রামীণ-WiFi</h1>
-                        <p class="text-sm text-primary-100 m-0">আপনার স্থানীয় ডাউনলোড কেন্দ্র</p>
+                <div class="logo">
+                    <div class="logo-icon">গ্রা</div>
+                    <div class="logo-text">
+                        <h1>গ্রামীণ-WiFi</h1>
+                        <p>আপনার স্থানীয় ডাউনলোড কেন্দ্র</p>
                     </div>
                 </div>
             </a>
-            <div class="menu-toggle md:hidden" aria-label="Toggle navigation menu" role="button" tabindex="0">
-                <span class="block w-6 h-0.5 bg-white rounded transition-transform duration-200"></span>
-                <span class="block w-6 h-0.5 bg-white rounded my-1 transition-opacity duration-200"></span>
-                <span class="block w-6 h-0.5 bg-white rounded transition-transform duration-200"></span>
-            </div>
-            <nav class="header-nav md:flex items-center gap-4" role="navigation">
-                <a href="#software-heading" class="nav-link px-3 py-1 rounded-lg font-medium transition-all duration-200 border-2 border-transparent text-white hover:bg-white hover:text-primary-600 hover:-translate-y-0.5" aria-label="App">App</a>
-                <a href="#media-heading" class="nav-link px-3 py-1 rounded-lg font-medium transition-all duration-200 border-2 border-transparent text-white hover:bg-white hover:text-primary-600 hover:-translate-y-0.5" aria-label="Link">Link</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="header-nav" id="headerNav" role="navigation">
+                <a href="#apps" class="nav-link">Apps</a>
+                <a href="#tools" class="nav-link">Tools</a>
+                <a href="#ftp" class="nav-link">FTP Sites</a>
+                <a href="#livetv" class="nav-link">Live TV</a>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow">
-        <div class="max-w-6xl mx-auto px-4 py-8">
-            <!-- Introduction -->
-          
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h2>Welcome to গ্রামীণ-WiFi</h2>
+                <p>Your local download center for apps, tools, and media content</p>
+            </section>
 
-            <!-- Category: Software -->
-            <section class="content-category mb-12" aria-labelledby="software-heading">
-                <h2 id="software-heading" class="text-primary-600 border-b-2 border-gray-200 pb-4 mb-6 font-bold text-2xl">App Download</h2>
-                <div class="space-y-4">
-                    <!-- Software Item 1 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">RoarZone Live TV</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Mobile App</span>
-                                <span class="text-sm text-gray-600">85.3 MB</span>
-                                <span class="text-sm text-gray-600">Dec 5, 2024</span>
-                            </div>
+            <!-- Category: Apps -->
+            <section class="content-section" id="apps">
+                <h2 class="section-title">
+                    <span class="section-icon">&#128241;</span>
+                    App Download
+                </h2>
+                <div class="cards-grid">
+                    <!-- App 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>RoarZone Live TV</h3>
+                            <span class="badge">Mobile App</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="app/roarzone.apk" 
-                               download="RoarZone_LiveTV_v1.0.apk"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download RoarZone Live TV App">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="file-info">
+                                <span>&#128190; 85.3 MB</span>
+                                <span>&#128197; Dec 5, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="app/roarzone.apk" download="RoarZone_LiveTV_v1.0.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Software Item 2 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">HD Stream Live TV</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Mobile App</span>
-                                <span class="text-sm text-gray-600">72.5 MB</span>
-                                <span class="text-sm text-gray-600">Dec 3, 2024</span>
-                            </div>
+                    <!-- App 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>HD Stream Live TV</h3>
+                            <span class="badge">Mobile App</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="app/hdstrem.apk" 
-                               download="HDStream_LiveTV_v2.1.apk"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download HD Stream Live TV App">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="file-info">
+                                <span>&#128190; 72.5 MB</span>
+                                <span>&#128197; Dec 3, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="app/hdstrem.apk" download="HDStream_LiveTV_v2.1.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Software Item 3 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">HDO Movie</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Mobile App</span>
-                                <span class="text-sm text-gray-600">95.8 MB</span>
-                                <span class="text-sm text-gray-600">Dec 4, 2024</span>
-                            </div>
+                    <!-- App 3 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>HDO Movie</h3>
+                            <span class="badge">Mobile App</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="app/hdobox.apk" 
-                               download="HDO_Movies_v3.2.apk"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download HDO Movie Watching App">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="file-info">
+                                <span>&#128190; 95.8 MB</span>
+                                <span>&#128197; Dec 4, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="app/hdobox.apk" download="HDO_Movies_v3.2.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Software Item 4 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">Sportzfy Sports App</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Mobile App</span>
-                                <span class="text-sm text-gray-600">16.3 MB</span>
-                                <span class="text-sm text-gray-600">Dec 6, 2024</span>
-                            </div>
+                    <!-- App 4 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Sportzfy Sports App</h3>
+                            <span class="badge">Mobile App</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="app/Sportzfy.apk" 
-                               download="Sportzfy_v1.0.apk"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download Sportzfy Sports App">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="file-info">
+                                <span>&#128190; 16.3 MB</span>
+                                <span>&#128197; Dec 6, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="app/Sportzfy.apk" download="Sportzfy_v1.0.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- App 5 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>NewPipe</h3>
+                            <span class="badge">Mobile App</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="file-info">
+                                <span>&#128190; 11.8 MB</span>
+                                <span>&#128197; Dec 9, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://archive.newpipe.net/fdroid/repo/NewPipe_v0.28.0.apk" download="NewPipe" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- App 6 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>YouTube</h3>
+                            <span class="badge">Mobile App</span>
+                        </div>
+                        <div class="card-body">
+                            <p class="file-info">
+                                <span>&#128190; 163.6 MB</span>
+                                <span>&#128197; Dec 9, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://drive.google.com/file/d/1_w6LL-T8c64BnHFlKc91_esaJEMyLFzF/view?usp=sharing" download="YouTube_v19.08.35.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
@@ -147,612 +168,335 @@
             </section>
 
             <!-- Category: Tools -->
-            <section class="content-category mb-12" aria-labelledby="tools-heading">
-                <h2 id="tools-heading" class="text-primary-600 border-b-2 border-gray-200 pb-4 mb-6 font-bold text-2xl">Tools</h2>
-                <div class="space-y-4">
-                    <!-- Tool Item 1 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">Network Speed Tester</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Utility</span>
-                                <span class="text-sm text-gray-600">5.2 MB</span>
-                                <span class="text-sm text-gray-600">Dec 7, 2024</span>
-                            </div>
-                            <p class="text-gray-600 mt-2">Test your internet connection speed and diagnose network issues.</p>
+            <section class="content-section" id="tools">
+                <h2 class="section-title">
+                    <span class="section-icon">&#128295;</span>
+                    Tools
+                </h2>
+                <div class="cards-grid">
+                    <!-- Tool 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>MicroG</h3>
+                            <span class="badge badge-system">System</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="#" 
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download Network Speed Tester">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="card-desc">Open source implementation of Google Play Services for Android devices.</p>
+                            <p class="file-info">
+                                <span>&#128190; 38.8 MB</span>
+                                <span>&#128197; Dec 9, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="app/microg.apk" download="MicroG_v0.2.24.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Tool Item 2 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">WiFi Analyzer</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Utility</span>
-                                <span class="text-sm text-gray-600">3.8 MB</span>
-                                <span class="text-sm text-gray-600">Dec 7, 2024</span>
-                            </div>
-                            <p class="text-gray-600 mt-2">Analyze WiFi signals and find the best channels for optimal performance.</p>
+                    <!-- Tool 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Network Speed Tester</h3>
+                            <span class="badge badge-utility">Utility</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="#" 
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download WiFi Analyzer">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="card-desc">Test your internet connection speed and diagnose network issues.</p>
+                            <p class="file-info">
+                                <span>&#128190; 5.2 MB</span>
+                                <span>&#128197; Dec 7, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Tool Item 3 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">Port Scanner</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Security</span>
-                                <span class="text-sm text-gray-600">7.1 MB</span>
-                                <span class="text-sm text-gray-600">Dec 7, 2024</span>
-                            </div>
-                            <p class="text-gray-600 mt-2">Scan network ports to identify open services and potential vulnerabilities.</p>
+                    <!-- Tool 3 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>WiFi Analyzer</h3>
+                            <span class="badge badge-utility">Utility</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="#" 
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download Port Scanner">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="card-desc">Analyze WiFi signals and find the best channels for optimal performance.</p>
+                            <p class="file-info">
+                                <span>&#128190; 3.8 MB</span>
+                                <span>&#128197; Dec 7, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
 
-                    <!-- Tool Item 4 -->
-                    <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                        <div class="flex-1">
-                            <h3 class="font-semibold text-lg m-0">Unlink</h3>
-                            <div class="flex flex-wrap items-center gap-2 mt-2">
-                                <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Utility</span>
-                                <span class="text-sm text-gray-600">3.9 MB</span>
-                                <span class="text-sm text-gray-600">Dec 7, 2024</span>
-                            </div>
-                            <p class="text-gray-600 mt-2">Utility tool for managing network connections and link configurations.</p>
+                    <!-- Tool 4 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Port Scanner</h3>
+                            <span class="badge badge-security">Security</span>
                         </div>
-                        <div class="flex-shrink-0">
-                            <a href="app/unlink.apk" 
-                               download="Unlink_v1.0.apk"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                               aria-label="Download Unlink">
-                                <span class="text-lg">⬇</span> Download
+                        <div class="card-body">
+                            <p class="card-desc">Scan network ports to identify open services and potential vulnerabilities.</p>
+                            <p class="file-info">
+                                <span>&#128190; 7.1 MB</span>
+                                <span>&#128197; Dec 7, 2024</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
                             </a>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- Category: Media Content -->
-            <section class="content-category mb-12" aria-labelledby="media-heading">
-                <h2 id="media-heading" class="text-primary-600 border-b-2 border-gray-200 pb-4 mb-6 font-bold text-2xl">Media & Entertainment</h2>
-                
-                <!-- FTP Sites -->
-                <div class="mb-8">
-                    <h3 class="text-primary-600 font-semibold text-xl mb-4">FTP Sites</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">10.16.100.244</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://10.16.100.244/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit 10.16.100.244">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
+                    <!-- Tool 5 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Unlink</h3>
+                            <span class="badge badge-utility">Utility</span>
                         </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">fs.ebox.live</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://fs.ebox.live/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit fs.ebox.live">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
+                        <div class="card-body">
+                            <p class="card-desc">Utility tool for managing network connections and link configurations.</p>
+                            <p class="file-info">
+                                <span>&#128190; 3.9 MB</span>
+                                <span>&#128197; Dec 7, 2024</span>
+                            </p>
                         </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">172.22.22.101/webhome</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://172.22.22.101/webhome/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit 172.22.22.101/webhome">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">zflixbd.com</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://zflixbd.com/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit zflixbd.com">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">bokasoka.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://bokasoka.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit bokasoka.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">ftpbd.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="https://ftpbd.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit ftpbd.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">timepassbd.live</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://timepassbd.live/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit timepassbd.live">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">172.17.50.240</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://172.17.50.240/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit 172.17.50.240">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">moviehaat.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="https://moviehaat.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit moviehaat.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">discoveryftp.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="https://discoveryftp.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit discoveryftp.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">movies.discoveryftp.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="https://movies.discoveryftp.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit movies.discoveryftp.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">dflix.live</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://dflix.live/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit dflix.live">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">172.16.50.4</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://172.16.50.4/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit 172.16.50.4">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">new.circleftp.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://new.circleftp.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit new.circleftp.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">circleftp.net</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://circleftp.net/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit circleftp.net">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">moviemazic.xyz/movies.html</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">FTP</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://moviemazic.xyz/movies.html" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit moviemazic.xyz/movies.html">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Live TV Sites -->
-                <div>
-                    <h3 class="text-primary-600 font-semibold text-xl mb-4">Live TV Sites</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">10.20.30.40</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Live TV</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://10.20.30.40/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit 10.20.30.40">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">tv.roarzone.info</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Live TV</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://tv.roarzone.info/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit tv.roarzone.info">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-white border border-primary-200 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all duration-200 hover:border-primary-500">
-                            <div class="flex-1">
-                                <h4 class="font-semibold text-lg m-0">172.16.29.28</h4>
-                                <div class="flex flex-wrap items-center gap-2 mt-1">
-                                    <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase">Live TV</span>
-                                </div>
-                            </div>
-                            <div class="flex-shrink-0">
-                                <a href="http://172.16.29.28/" 
-                                   target="_blank"
-                                   class="visit-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer hover:bg-primary-600 hover:border-primary-600 shadow-md hover:shadow-lg"
-                                   aria-label="Visit 172.16.29.28">
-                                    <span class="text-lg">↗</span> Visit
-                                </a>
-                            </div>
+                        <div class="card-footer">
+                            <a href="app/unlink.apk" download="Unlink_v1.0.apk" class="btn btn-primary">
+                                <span class="btn-icon">&#11015;</span> Download
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Category: Local Content -->
-            <section class="content-category mb-12" aria-labelledby="local-heading">
-                <h2 id="local-heading" class="text-primary-600 border-b-2 border-gray-200 pb-4 mb-6 font-bold text-2xl">Local Content</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                    <!-- Local Item 1 -->
-                    <article class="bg-white border border-primary-200 rounded-xl p-6 flex flex-col transition-all duration-200 shadow hover:shadow-lg hover:-translate-y-1 hover:border-primary-500">
-                        <div class="flex justify-between items-start gap-4 mb-4 flex-wrap">
-                            <h3 class="font-semibold text-lg m-0 flex-grow">Local News</h3>
-                            <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase whitespace-nowrap">Video</span>
+            <!-- Category: FTP Sites -->
+            <section class="content-section" id="ftp">
+                <h2 class="section-title">
+                    <span class="section-icon">&#128451;</span>
+                    FTP Sites
+                </h2>
+                <div class="list-grid">
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>10.16.100.244</h4>
+                            <span class="badge badge-ftp">FTP</span>
                         </div>
-                        <div class="flex-grow mb-4">
-                            <p class="mb-1"><strong class="text-gray-900">File Size:</strong> 120.4 MB</p>
-                            <p class="mb-1"><strong class="text-gray-900">Upload Date:</strong> December 1, 2024</p>
-                            <p class="italic text-gray-600 mt-2 !mt-2">Latest local news and updates from the community.</p>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="ftp://media.isp.local/Local/Local_News_2024_HD.mp4" 
-                               download="Local_News_2024_HD.mp4"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer text-center w-full hover:bg-primary-600 hover:border-primary-600 hover:-translate-y-0.5 shadow-md hover:shadow-lg"
-                               aria-label="Download Local News">
-                                <span class="text-lg">⬇</span> Download
-                            </a>
-                        </div>
-                    </article>
+                        <a href="http://10.16.100.244/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
 
-                    <!-- Local Item 2 -->
-                    <article class="bg-white border border-primary-200 rounded-xl p-6 flex flex-col transition-all duration-200 shadow hover:shadow-lg hover:-translate-y-1 hover:border-primary-500">
-                        <div class="flex justify-between items-start gap-4 mb-4 flex-wrap">
-                            <h3 class="font-semibold text-lg m-0 flex-grow">Community Events</h3>
-                            <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase whitespace-nowrap">Video</span>
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>fs.ebox.live</h4>
+                            <span class="badge badge-ftp">FTP</span>
                         </div>
-                        <div class="flex-grow mb-4">
-                            <p class="mb-1"><strong class="text-gray-900">File Size:</strong> 98.7 MB</p>
-                            <p class="mb-1"><strong class="text-gray-900">Upload Date:</strong> November 29, 2024</p>
-                            <p class="italic text-gray-600 mt-2 !mt-2">Highlights of recent community events and activities.</p>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="ftp://media.isp.local/Local/Community_Events_2024.mp4" 
-                               download="Community_Events_2024.mp4"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer text-center w-full hover:bg-primary-600 hover:border-primary-600 hover:-translate-y-0.5 shadow-md hover:shadow-lg"
-                               aria-label="Download Community Events">
-                                <span class="text-lg">⬇</span> Download
-                            </a>
-                        </div>
-                    </article>
+                        <a href="http://fs.ebox.live/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
 
-                    <!-- Local Item 3 -->
-                    <article class="bg-white border border-primary-200 rounded-xl p-6 flex flex-col transition-all duration-200 shadow hover:shadow-lg hover:-translate-y-1 hover:border-primary-500">
-                        <div class="flex justify-between items-start gap-4 mb-4 flex-wrap">
-                            <h3 class="font-semibold text-lg m-0 flex-grow">Local Weather Forecast</h3>
-                            <span class="inline-block bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-semibold uppercase whitespace-nowrap">Video</span>
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>172.22.22.101/webhome</h4>
+                            <span class="badge badge-ftp">FTP</span>
                         </div>
-                        <div class="flex-grow mb-4">
-                            <p class="mb-1"><strong class="text-gray-900">File Size:</strong> 112.3 MB</p>
-                            <p class="mb-1"><strong class="text-gray-900">Upload Date:</strong> December 3, 2024</p>
-                            <p class="italic text-gray-600 mt-2 !mt-2">Daily weather forecast for the local area.</p>
+                        <a href="http://172.22.22.101/webhome/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>zflixbd.com</h4>
+                            <span class="badge badge-ftp">FTP</span>
                         </div>
-                        <div class="mt-auto">
-                            <a href="ftp://media.isp.local/Local/Local_Weather_Forecast_2024.mp4" 
-                               download="Local_Weather_Forecast_2024.mp4"
-                               class="download-btn inline-flex items-center justify-center gap-1 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 border-2 border-primary-500 cursor-pointer text-center w-full hover:bg-primary-600 hover:border-primary-600 hover:-translate-y-0.5 shadow-md hover:shadow-lg"
-                               aria-label="Download Local Weather Forecast">
-                                <span class="text-lg">⬇</span> Download
-                            </a>
+                        <a href="http://zflixbd.com/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>bokasoka.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
                         </div>
-                    </article>
+                        <a href="http://bokasoka.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>ftpbd.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="https://ftpbd.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>timepassbd.live</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://timepassbd.live/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>172.17.50.240</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://172.17.50.240/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>moviehaat.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="https://moviehaat.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>discoveryftp.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="https://discoveryftp.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>movies.discoveryftp.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="https://movies.discoveryftp.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>dflix.live</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://dflix.live/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>172.16.50.4</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://172.16.50.4/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>new.circleftp.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://new.circleftp.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>circleftp.net</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://circleftp.net/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>moviemazic.xyz</h4>
+                            <span class="badge badge-ftp">FTP</span>
+                        </div>
+                        <a href="http://moviemazic.xyz/movies.html" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
                 </div>
             </section>
 
-           
+            <!-- Category: Live TV -->
+            <section class="content-section" id="livetv">
+                <h2 class="section-title">
+                    <span class="section-icon">&#128250;</span>
+                    Live TV Sites
+                </h2>
+                <div class="list-grid">
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>10.20.30.40</h4>
+                            <span class="badge badge-livetv">Live TV</span>
+                        </div>
+                        <a href="http://10.20.30.40/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>tv.roarzone.info</h4>
+                            <span class="badge badge-livetv">Live TV</span>
+                        </div>
+                        <a href="http://tv.roarzone.info/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+
+                    <div class="list-item">
+                        <div class="list-item-content">
+                            <h4>172.16.29.28</h4>
+                            <span class="badge badge-livetv">Live TV</span>
+                        </div>
+                        <a href="http://172.16.29.28/" target="_blank" class="btn btn-secondary">
+                            <span class="btn-icon">&#8599;</span> Visit
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-12 mt-12">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div class="footer-section">
-                <h3 class="text-white mb-4 font-bold text-xl border-b border-primary-300 pb-2">About ISP Media Vault</h3>
-                <p class="text-primary-100">A secure, local download center for ISP customers. All content is hosted on our local media server for fast, reliable access.</p>
-            </div>
-            <div class="footer-section">
-                <h3 class="text-white mb-4 font-bold text-xl border-b border-primary-300 pb-2">Support Numbers</h3>
-                <ul class="list-none p-0">
-                    <li class="mb-2 text-primary-100">📞 01781981486</li>
-                    <li class="mb-2 text-primary-100">📞 01963676581</li>
-                    <li class="mb-2 text-primary-100">📞 01959620533</li>
-                    <li class="mb-2 text-primary-100">📞 01983211950</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3 class="text-white mb-4 font-bold text-xl border-b border-primary-300 pb-2">Support</h3>
-                <p class="text-primary-100"><strong>Email:</strong> murshedkoli@gmail.com</p>
-                <p class="text-primary-100"><strong>Phone:</strong> +880 9602-321138</p>
-                <p class="text-primary-100"><strong>Office:</strong> Kalikaccha Bazar, Sarail, Brahmanbaria</p>
-            </div>
-        </div>
-        <div class="border-t border-primary-300 pt-6 text-center">
-            <p class="text-primary-100">&copy; 2024  গ্রামীণ-WiFi. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 গ্রামীণ-WiFi. All rights reserved.</p>
+            <p class="footer-subtitle">Your local download center</p>
         </div>
     </footer>
-    
-    <script>
-        // Mobile menu toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const headerNav = document.querySelector('.header-nav');
-            
-            if (menuToggle && headerNav) {
-                // Focus trap elements
-                const navLinks = headerNav.querySelectorAll('.nav-link');
-                const firstNavLink = navLinks[0];
-                const lastNavLink = navLinks[navLinks.length - 1];
-                
-                menuToggle.addEventListener('click', function() {
-                    headerNav.classList.toggle('hidden');
-                    menuToggle.classList.toggle('active');
-                    
-                    // Focus management
-                    if (!headerNav.classList.contains('hidden')) {
-                        // Menu opened - focus first link
-                        firstNavLink.focus();
-                    } else {
-                        // Menu closed - focus toggle button
-                        menuToggle.focus();
-                    }
-                });
-                
-                // Close menu when clicking on a nav link
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        headerNav.classList.add('hidden');
-                        menuToggle.classList.remove('active');
-                        menuToggle.focus();
-                    });
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    const isClickInsideNav = headerNav.contains(event.target);
-                    const isClickOnToggle = menuToggle.contains(event.target);
-                    
-                    if (!isClickInsideNav && !isClickOnToggle && !headerNav.classList.contains('hidden')) {
-                        headerNav.classList.add('hidden');
-                        menuToggle.classList.remove('active');
-                        menuToggle.focus();
-                    }
-                });
-                
-                // Keyboard navigation for mobile menu
-                headerNav.addEventListener('keydown', function(e) {
-                    if (!headerNav.classList.contains('hidden')) {
-                        // ESC key closes menu
-                        if (e.key === 'Escape') {
-                            headerNav.classList.add('hidden');
-                            menuToggle.classList.remove('active');
-                            menuToggle.focus();
-                        }
-                        
-                        // Trap focus inside menu
-                        if (e.key === 'Tab') {
-                            if (e.shiftKey && document.activeElement === firstNavLink) {
-                                e.preventDefault();
-                                lastNavLink.focus();
-                            } else if (!e.shiftKey && document.activeElement === lastNavLink) {
-                                e.preventDefault();
-                                firstNavLink.focus();
-                            }
-                        }
-                    }
-                });
-                
-                // Handle Shift+Tab on menu toggle
-                menuToggle.addEventListener('keydown', function(e) {
-                    if (e.key === 'Tab' && e.shiftKey && !headerNav.classList.contains('hidden')) {
-                        e.preventDefault();
-                        lastNavLink.focus();
-                    }
-                });
-            }
-        });
-    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8593;</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
