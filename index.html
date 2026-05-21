@@ -185,8 +185,8 @@
     }
     @media (max-width: 768px) {
       .nav-links { position: absolute; top: 60px; left: 0; width: 100%; background-color: var(--bg-card); flex-direction: column; gap: 0; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; border-bottom: 1px solid var(--border-light); }
-      .nav-links.show { max-height: 300px; }
-      .nav-links a { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; }
+      .nav-links.show { max-height: 520px; }
+      .nav-links a { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; }
       .nav-toggle { display: flex; }
 
       .hero h1 { font-size: 30px; }
@@ -195,7 +195,9 @@
       .contact-banner { flex-direction: column; align-items: flex-start; text-align: left; padding: 32px 24px; }
       .cb-right { align-items: flex-start; }
 
-      .cards-grid, .list-grid { grid-template-columns: 1fr; }
+      /* tablets: 2-col app cards, 1-col list */
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .list-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 30px; }
@@ -698,6 +700,43 @@
       color: var(--primary-dark);
     }
 
+    .badge-oldtv {
+      border-radius: 999px;
+      background: #fff3e0;
+      color: #c84e00;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      display: inline-block;
+    }
+
+    .badge-android {
+      border-radius: 999px;
+      background: #e8f5e9;
+      color: #1b5e20;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 7px;
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    .badge-yt-mobile { border-radius: 999px; background: var(--primary-soft); color: var(--primary-dark); font-size: 12px; font-weight: 600; padding: 2px 8px; display: inline-block; }
+    .badge-yt-tv     { border-radius: 999px; background: #dbeafe; color: #1d4ed8; font-size: 12px; font-weight: 600; padding: 2px 8px; display: inline-block; }
+    .badge-yt-music  { border-radius: 999px; background: #ede9fe; color: #5b21b6; font-size: 12px; font-weight: 600; padding: 2px 8px; display: inline-block; }
+
+    .oldtv-note {
+      background: #fff8f0;
+      border: 1px solid #f5d9b8;
+      border-left: 4px solid #f97316;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      color: #7a4010;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     .list-grid { gap: 14px; }
 
     .list-card {
@@ -823,7 +862,18 @@
       .tab-btn { flex: 1; padding: 10px 12px; }
       .slider-wrapper { padding: 0; }
       .cb-phone { font-size: 24px; }
+
+      /* app card mobile fixes */
+      .dl-card { padding: 16px 14px; }
+      .dl-icon { width: 42px; height: 42px; font-size: 20px; }
+      .dl-info h4 { font-size: 15px; }
+      .search-wrapper { max-width: 100%; }
+      .section-subtitle { text-align: left; margin-left: 0; margin-right: 0; }
     }
+
+    /* prevent long text from breaking card layout at any width */
+    .dl-info h4 { word-break: break-word; }
+    .dl-desc    { word-break: break-word; }
   </style>
 </head>
 <body>
@@ -841,6 +891,8 @@
       <div class="nav-links" id="nav-menu">
         <a href="#packages">প্যাকেজ</a>
         <a href="#apps">অ্যাপস</a>
+        <a href="#oldtv">পুরনো TV</a>
+        <a href="#youtube">YouTube</a>
         <a href="#tools">টুলস</a>
         <a href="#ftp">FTP</a>
         <a href="#livetv">Live TV</a>
@@ -1117,6 +1169,35 @@
     </div>
   </section>
 
+  <!-- Old TV Apps Section -->
+  <section id="oldtv">
+    <div class="container">
+      <span class="section-label">— পুরনো TV অ্যাপ</span>
+      <h2 class="section-title">পুরনো TV এর জন্য সেরা অ্যাপ</h2>
+      <p class="section-subtitle">এই অ্যাপগুলো পুরনো Android TV বক্স ও স্মার্ট TV তে সাপোর্ট করে (Android 4.0+)</p>
+
+      <div class="oldtv-note">
+        ⚠️ <strong>নোট:</strong> নতুন অ্যাপ পুরনো TV তে চলে না। নিচের অ্যাপগুলো বিশেষভাবে পুরনো Android TV (5.x, 6.x, 7.x) এর জন্য বাছাই করা হয়েছে। প্রতিটি কার্ডে ন্যূনতম Android ভার্সন দেখানো আছে।
+      </div>
+
+      <div class="cards-grid" id="oldTvGrid">
+        <!-- Old TV Apps inserted via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Apps Section -->
+  <section id="youtube">
+    <div class="container">
+      <span class="section-label">— YouTube অ্যাপ</span>
+      <h2 class="section-title">সকল YouTube ক্লায়েন্ট অ্যাপ</h2>
+      <p class="section-subtitle">অফিশিয়াল থেকে প্রাইভেসি-ফার্স্ট বিকল্প — মোবাইল, TV ও মিউজিক সহ সব ধরনের YouTube অ্যাপ</p>
+      <div class="cards-grid" id="youtubeGrid">
+        <!-- YouTube apps inserted via JS -->
+      </div>
+    </div>
+  </section>
+
   <!-- Tools Section -->
   <section id="tools">
     <div class="container">
@@ -1165,6 +1246,8 @@
       <div class="footer-links">
         <a href="#packages">প্যাকেজ</a>
         <a href="#apps">অ্যাপস</a>
+        <a href="#oldtv">পুরনো TV</a>
+        <a href="#youtube">YouTube</a>
         <a href="#tools">টুলস</a>
         <a href="#ftp">FTP</a>
         <a href="#livetv">Live TV</a>
@@ -1203,6 +1286,165 @@
 
     const tvData = [
       '10.20.30.40', 'tv.roarzone.info', '172.16.29.28'
+    ];
+
+    const ytAppsData = [
+      {
+        name: 'YouTube (Official)',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '163 MB', date: 'Dec 2024',
+        link: 'https://drive.google.com/file/d/1_w6LL-T8c64BnHFlKc91_esaJEMyLFzF/view?usp=sharing',
+        icon: 'Y',
+        desc: 'Google এর অফিশিয়াল YouTube অ্যাপ। সাইন-ইন, Shorts, লাইভ ও সব ফিচার পাওয়া যায়।',
+        minAndroid: 'Android 8.0+'
+      },
+      {
+        name: 'NewPipe',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '11.8 MB', date: 'Dec 2024',
+        link: 'https://archive.newpipe.net/fdroid/repo/NewPipe_v0.28.0.apk',
+        icon: 'N',
+        desc: 'বিজ্ঞাপনমুক্ত YouTube। ব্যাকগ্রাউন্ড প্লে, ভিডিও ডাউনলোড ও কোনো Google Account ছাড়াই চলে।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'LibreTube',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '15 MB', date: '2024',
+        link: 'https://github.com/libre-tube/LibreTube/releases/latest/download/LibreTube.apk',
+        icon: 'L',
+        desc: 'Invidious API দিয়ে চলে — Google কে সম্পূর্ণ ট্র্যাক করতে দেয় না। Material You ডিজাইন।',
+        minAndroid: 'Android 8.0+'
+      },
+      {
+        name: 'PipePipe',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '12 MB', date: '2024',
+        link: 'https://github.com/InfinityLoop1308/PipePipe/releases/latest/download/PipePipe.apk',
+        icon: 'P',
+        desc: 'NewPipe এর উন্নত সংস্করণ। SponsorBlock, Return YouTube Dislike ও BiliBili সাপোর্ট।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'Tubular',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '11 MB', date: '2024',
+        link: 'https://github.com/polymorphicshade/Tubular/releases/latest/download/app-release.apk',
+        icon: 'T',
+        desc: 'NewPipe + SponsorBlock একসাথে। বিজ্ঞাপন ও স্পনসর সেগমেন্ট দুটোই অটো স্কিপ হয়।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'SkyTube Extra',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '8 MB', date: '2023',
+        link: 'https://github.com/SkyTubeTeam/SkyTube/releases/latest/download/SkyTubeExtra-release.apk',
+        icon: 'K',
+        desc: 'হালকা YouTube ক্লায়েন্ট। পুরনো কম-র‍্যামের ডিভাইসেও ভালো পারফর্ম করে।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'Grayjay',
+        type: 'Mobile', typeColor: 'mobile',
+        size: '45 MB', date: '2024',
+        link: 'https://grayjay.app/grayjay.apk',
+        icon: 'G',
+        desc: 'YouTube, Twitch, Odysee সহ অনেক প্ল্যাটফর্ম একটি অ্যাপে। FUTO কর্তৃক নির্মিত।',
+        minAndroid: 'Android 8.0+'
+      },
+      {
+        name: 'SmartTube (TV)',
+        type: 'TV', typeColor: 'tv',
+        size: '23 MB', date: '2024',
+        link: 'https://github.com/yuliskov/SmartTubeNext/releases/latest/download/smarttube_stable.apk',
+        icon: 'S',
+        desc: 'Android TV তে বিজ্ঞাপনমুক্ত YouTube। রিমোট কন্ট্রোলে সম্পূর্ণ নেভিগেশন করা যায়।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'SmartYouTubeTV (খুব পুরনো TV)',
+        type: 'TV', typeColor: 'tv',
+        size: '20 MB', date: '2022',
+        link: 'https://github.com/yuliskov/SmartYouTubeTV/releases/download/alpha/smartyoutubetv.apk',
+        icon: 'S',
+        desc: 'অনেক পুরনো TV বক্সের জন্য YouTube। SmartTube চলে না এমন পুরনো ডিভাইসে ব্যবহার করুন।',
+        minAndroid: 'Android 4.3+'
+      },
+      {
+        name: 'RiMusic (YT Music)',
+        type: 'Music', typeColor: 'music',
+        size: '14 MB', date: '2024',
+        link: 'https://github.com/fast4x/RiMusic/releases/latest/download/app-release.apk',
+        icon: 'R',
+        desc: 'YouTube Music এর ফ্রি বিকল্প। অফলাইন ডাউনলোড ও বিজ্ঞাপনমুক্ত মিউজিক স্ট্রিমিং।',
+        minAndroid: 'Android 6.0+'
+      },
+      {
+        name: 'InnerTune (YT Music)',
+        type: 'Music', typeColor: 'music',
+        size: '12 MB', date: '2024',
+        link: 'https://github.com/z-huang/InnerTune/releases/latest/download/app-release.apk',
+        icon: 'I',
+        desc: 'Material You ডিজাইনে YouTube Music। প্লেলিস্ট, লিরিক্স ও অফলাইন সাপোর্ট আছে।',
+        minAndroid: 'Android 6.0+'
+      }
+    ];
+
+    const oldTvAppsData = [
+      {
+        name: 'Kodi 18.9 Leia',
+        size: '102 MB',
+        date: 'Sep 2021',
+        link: 'https://mirrors.kodi.tv/releases/android/arm/kodi-18.9-Leia-armeabi-v7a.apk',
+        icon: 'K',
+        desc: 'সব ধরনের ভিডিও, IPTV ও FTP চালানোর সেরা মিডিয়া সেন্টার। পুরনো TV বক্সে নিখুঁতভাবে চলে।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'VLC Player (ARM)',
+        size: '28 MB',
+        date: 'Jan 2024',
+        link: 'https://get.videolan.org/vlc-android/3.6.0/VLC-Android-3.6.0-arm.apk',
+        icon: 'V',
+        desc: 'সব ফরম্যাটের ভিডিও ও অডিও ফ্রিতে চালানো যায়। FTP সার্ভার থেকেও সরাসরি চালানো যায়।',
+        minAndroid: 'Android 4.4+'
+      },
+      {
+        name: 'SmartTube (YouTube TV)',
+        size: '23 MB',
+        date: '2024',
+        link: 'https://github.com/yuliskov/SmartTubeNext/releases/latest/download/smarttube_stable.apk',
+        icon: 'S',
+        desc: 'পুরনো TV তে বিজ্ঞাপন ছাড়া YouTube দেখুন। Google Account ছাড়াও চলে।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'NewPipe v0.27.5 (Legacy)',
+        size: '11 MB',
+        date: 'Nov 2023',
+        link: 'https://archive.newpipe.net/fdroid/repo/NewPipe_v0.27.5.apk',
+        icon: 'N',
+        desc: 'পুরনো ডিভাইসে হালকা YouTube অ্যাপ। ডাউনলোড সুবিধাসহ, কোনো বিজ্ঞাপন নেই।',
+        minAndroid: 'Android 5.0+'
+      },
+      {
+        name: 'Perfect Player IPTV',
+        size: '10 MB',
+        date: '2023',
+        link: 'https://niklabs.com/downloads/perfect_player.apk',
+        icon: 'P',
+        desc: 'M3U/Xtream IPTV চ্যানেল দেখার সেরা প্লেয়ার। অনেক পুরনো TV বক্সেও চলে।',
+        minAndroid: 'Android 4.0+'
+      },
+      {
+        name: 'Jellyfin TV Client',
+        size: '18 MB',
+        date: '2024',
+        link: 'https://github.com/jellyfin/jellyfin-androidtv/releases/download/v0.16.7/jellyfin-androidtv-v0.16.7-release.apk',
+        icon: 'J',
+        desc: 'লোকাল মিডিয়া সার্ভার থেকে FTP ভিডিও স্ট্রিম করুন। ফ্রি ও ওপেন সোর্স।',
+        minAndroid: 'Android 5.0+'
+      }
     ];
 
     // --- Render Functions ---
@@ -1259,6 +1501,60 @@
       });
     }
 
+    function renderYoutubeApps() {
+      const grid = document.getElementById('youtubeGrid');
+      ytAppsData.forEach(app => {
+        const badgeClass = `badge-yt-${app.typeColor}`;
+        const typeLabel = app.type === 'TV' ? '📺 TV' : app.type === 'Music' ? '🎵 Music' : '📱 Mobile';
+        grid.innerHTML += `
+          <div class="dl-card">
+            <div class="dl-header">
+              <div class="dl-icon">${app.icon}</div>
+              <div class="dl-info">
+                <h4>${app.name}</h4>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                  <span class="${badgeClass}">${typeLabel}</span>
+                  <span class="badge-android">${app.minAndroid}</span>
+                </div>
+              </div>
+            </div>
+            <div class="dl-desc">${app.desc}</div>
+            <div class="dl-meta">
+              <span>${app.size}</span>
+              <span>${app.date}</span>
+            </div>
+            <a href="${app.link}" target="_blank" class="btn btn-green">ডাউনলোড করুন &darr;</a>
+          </div>
+        `;
+      });
+    }
+
+    function renderOldTvApps() {
+      const grid = document.getElementById('oldTvGrid');
+      oldTvAppsData.forEach(app => {
+        grid.innerHTML += `
+          <div class="dl-card">
+            <div class="dl-header">
+              <div class="dl-icon">${app.icon}</div>
+              <div class="dl-info">
+                <h4>${app.name}</h4>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                  <span class="badge-oldtv">📺 Old TV ✓</span>
+                  <span class="badge-android">${app.minAndroid}</span>
+                </div>
+              </div>
+            </div>
+            <div class="dl-desc">${app.desc}</div>
+            <div class="dl-meta">
+              <span>${app.size}</span>
+              <span>${app.date}</span>
+            </div>
+            <a href="${app.link}" target="_blank" download class="btn btn-green">ডাউনলোড করুন &darr;</a>
+          </div>
+        `;
+      });
+    }
+
     function renderList(data, containerId, isTV = false) {
       const grid = document.getElementById(containerId);
       data.forEach(item => {
@@ -1286,7 +1582,9 @@
 
     // Init Data
     renderApps();
+    renderYoutubeApps();
     renderTools();
+    renderOldTvApps();
     renderList(ftpData, 'ftpGrid');
     renderList(tvData, 'tvGrid', true);
 
