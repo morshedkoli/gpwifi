@@ -895,6 +895,7 @@
         <a href="#youtube">YouTube</a>
         <a href="#tools">টুলস</a>
         <a href="#ftp">FTP</a>
+        <a href="#livetvapps">TV Apps</a>
         <a href="#livetv">Live TV</a>
       </div>
     </div>
@@ -1222,6 +1223,19 @@
     </div>
   </section>
 
+  <!-- Live TV Apps Section -->
+  <section id="livetvapps">
+    <div class="container">
+      <span class="section-label">— Live TV অ্যাপ</span>
+      <h2 class="section-title">Live TV অ্যাপ ডাউনলোড</h2>
+      <p class="section-subtitle">লাইভ টিভি, স্পোর্টস ও চ্যানেল দেখার জন্য দরকারি অ্যাপগুলো ডাউনলোড করুন</p>
+
+      <div class="cards-grid" id="liveTvAppsGrid">
+        <!-- Live TV apps inserted via JS -->
+      </div>
+    </div>
+  </section>
+
   <!-- Live TV Section -->
   <section id="livetv">
     <div class="container">
@@ -1250,6 +1264,7 @@
         <a href="#youtube">YouTube</a>
         <a href="#tools">টুলস</a>
         <a href="#ftp">FTP</a>
+        <a href="#livetvapps">TV Apps</a>
         <a href="#livetv">Live TV</a>
       </div>
 
@@ -1264,24 +1279,147 @@
   <script>
     // --- Data ---
     const appsData = [
-      { name: 'RoarZone Live TV', size: '85.3 MB', date: 'Dec 5, 2024', link: 'https://gpwifi.vercel.app/app/roarzone.apk', icon: 'R' },
-      { name: 'HD Stream Live TV', size: '72.5 MB', date: 'Dec 3, 2024', link: 'https://gpwifi.vercel.app/app/hdstrem.apk', icon: 'H' },
-      { name: 'HDO Movie', size: '95.8 MB', date: 'Dec 4, 2024', link: 'https://gpwifi.vercel.app/app/hdobox.apk', icon: 'M' },
-      { name: 'Sportzfy Sports App', size: '16.3 MB', date: 'Dec 6, 2024', link: 'https://gpwifi.vercel.app/app/Sportzfy.apk', icon: 'S' },
-      { name: 'NewPipe', size: '11.8 MB', date: 'Dec 9, 2024', link: 'https://archive.newpipe.net/fdroid/repo/NewPipe_v0.28.0.apk', icon: 'N' },
-      { name: 'YouTube', size: '163.6 MB', date: 'Dec 9, 2024', link: 'https://drive.google.com/file/d/1_w6LL-T8c64BnHFlKc91_esaJEMyLFzF/view?usp=sharing', icon: 'Y' }
+      { name: 'RoarZone Live TV', size: '85.3 MB', date: 'Dec 5, 2024', link: 'https://drive.google.com/uc?export=download&id=1dnlUvEb_hJctcXS5gqP5sRwoLv6YrZh7', icon: 'R' },
+      { name: 'HD Stream Live TV', size: '72.5 MB', date: 'Dec 3, 2024', link: 'https://drive.google.com/uc?export=download&id=1myK5bGAh4oA7334KcMmq9qHT1_P2xLb1', icon: 'H' },
+      { name: 'HDO Movie', size: '95.8 MB', date: 'Dec 4, 2024', link: 'https://drive.google.com/uc?export=download&id=185_4Mu3SRc_OsEPQLCoTp1CgOjpD0zMd', icon: 'M' },
+      { name: 'Sportzfy Sports App', size: '16.3 MB', date: 'Dec 6, 2024', link: 'https://drive.google.com/uc?export=download&id=1MQxYsjhei5jkSHTN5-00iELH9Tk3gNGf', icon: 'S' },
+      { name: 'SportzX', size: '14.4 MB', date: 'Jun 1, 2026', link: 'https://drive.google.com/uc?export=download&id=1PiTkInuKuRJ1tMVQzrn_usBIVrMeTHSS', icon: 'X' },
+      { name: 'NewPipe', size: '11.8 MB', date: 'Dec 9, 2024', link: 'https://drive.google.com/uc?export=download&id=1E8w7Unn65VJrYWVwnGEYzLHfLbivjqPa', icon: 'N' },
+      { name: 'YouTube', size: '163.6 MB', date: 'Dec 9, 2024', link: 'https://drive.google.com/uc?export=download&id=1_w6LL-T8c64BnHFlKc91_esaJEMyLFzF', icon: 'Y' }
+    ];
+
+    const liveTvAppsData = [
+      {
+        name: 'RoarZone Live TV',
+        size: '85.3 MB',
+        date: 'Dec 5, 2024',
+        link: 'https://drive.google.com/uc?export=download&id=1dnlUvEb_hJctcXS5gqP5sRwoLv6YrZh7',
+        icon: 'R',
+        desc: 'লাইভ টিভি চ্যানেল ও বিনোদন দেখার জন্য RoarZone অ্যাপ।'
+      },
+      {
+        name: 'HD Stream Live TV',
+        size: '72.5 MB',
+        date: 'Dec 3, 2024',
+        link: 'https://drive.google.com/uc?export=download&id=1myK5bGAh4oA7334KcMmq9qHT1_P2xLb1',
+        icon: 'H',
+        desc: 'দেশি-বিদেশি লাইভ টিভি চ্যানেল স্ট্রিম করার জন্য HD Stream অ্যাপ।'
+      },
+      {
+        name: 'Sportzfy Sports App',
+        size: '16.3 MB',
+        date: 'Dec 6, 2024',
+        link: 'https://drive.google.com/uc?export=download&id=1MQxYsjhei5jkSHTN5-00iELH9Tk3gNGf',
+        icon: 'S',
+        desc: 'লাইভ স্পোর্টস, ক্রিকেট ও ফুটবল ম্যাচ দেখার জন্য Sportzfy।'
+      },
+      {
+        name: 'SportzX',
+        size: '14.4 MB',
+        date: 'Jun 1, 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1PiTkInuKuRJ1tMVQzrn_usBIVrMeTHSS',
+        icon: 'X',
+        desc: 'স্পোর্টস ও লাইভ ম্যাচ স্ট্রিমিংয়ের জন্য SportzX অ্যাপ।'
+      },
+      {
+        name: 'AK47Sports',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=19iC07CxouVt4-2SsJiqw7u9gQaCZ8uIU',
+        icon: 'A',
+        desc: 'লাইভ স্পোর্টস ও ম্যাচ স্ট্রিমিংয়ের জন্য AK47Sports অ্যাপ।'
+      },
+      {
+        name: 'Cicfy',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1Ga-hQuNeB5ISHyplHzAkN4AKOTN9wDK3',
+        icon: 'C',
+        desc: 'লাইভ টিভি ও স্পোর্টস স্ট্রিমিংয়ের জন্য Cicfy অ্যাপ।'
+      },
+      {
+        name: 'LiveNetTV',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=12HmS7OcJw9sgmHjeT2SQ_1vp6xXIzuSU',
+        icon: 'L',
+        desc: 'লাইভ টিভি চ্যানেল স্ট্রিমিংয়ের জন্য LiveNetTV অ্যাপ।'
+      },
+      {
+        name: 'OreoTV',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1SYOg3C06JPebXnLnL7zfmVmioQg8UPBr',
+        icon: 'O',
+        desc: 'লাইভ টিভি ও বিনোদন চ্যানেল দেখার জন্য OreoTV অ্যাপ।'
+      },
+      {
+        name: 'Pikashow',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1733UGFEPho5SXUlbosCV6uPsGcAjqk2Y',
+        icon: 'P',
+        desc: 'লাইভ টিভি, মুভি ও বিনোদন স্ট্রিমিংয়ের জন্য Pikashow অ্যাপ।'
+      },
+      {
+        name: 'playFytv',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1Hmv34xSKofO4Eym9hFgGtBFJMtoCc82U',
+        icon: 'P',
+        desc: 'লাইভ টিভি ও চ্যানেল স্ট্রিমিংয়ের জন্য playFytv অ্যাপ।'
+      },
+      {
+        name: 'sportsfire',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1JkOcEhpGW_tUxp4RPAmT9_Hnd5nPT5YG',
+        icon: 'S',
+        desc: 'লাইভ স্পোর্টস ও ম্যাচ স্ট্রিমিংয়ের জন্য sportsfire অ্যাপ।'
+      },
+      {
+        name: 'tflix',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1V9fGL9KwIjdyk32uCLV2JWux2Y3IMeme',
+        icon: 'T',
+        desc: 'লাইভ টিভি ও বিনোদন স্ট্রিমিংয়ের জন্য tflix অ্যাপ।'
+      },
+      {
+        name: 'yacinetv',
+        size: 'Unknown',
+        date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1y7rN9jozJBpgpGaRGKMimagowxqMovBI',
+        icon: 'Y',
+        desc: 'লাইভ টিভি ও স্পোর্টস স্ট্রিমিংয়ের জন্য yacinetv অ্যাপ।'
+      }
     ];
 
     const toolsData = [
-      { name: 'MicroG', cat: 'System', desc: 'Google Play Services এর ওপেন সোর্স বিকল্প', size: '38.8 MB', link: 'https://gpwifi.vercel.app/app/microg.apk', icon: 'M' },
+      { name: 'MicroG', cat: 'System', desc: 'Google Play Services এর ওপেন সোর্স বিকল্প', size: '38.8 MB', link: 'https://drive.google.com/uc?export=download&id=1-ujAWGC8g2paV3fs4QNXXmHo0YGHAnpY', icon: 'M' },
       { name: 'Network Speed Tester', cat: 'Utility', desc: 'ইন্টারনেট স্পিড পরীক্ষা করুন', size: '5.2 MB', link: '', icon: 'S' },
       { name: 'WiFi Analyzer', cat: 'Utility', desc: 'WiFi সিগন্যাল বিশ্লেষণ করুন', size: '3.8 MB', link: '', icon: 'W' },
       { name: 'Port Scanner', cat: 'Security', desc: 'নেটওয়ার্ক পোর্ট স্ক্যান করুন', size: '7.1 MB', link: '', icon: 'P' },
-      { name: 'Unlink', cat: 'Utility', desc: 'নেটওয়ার্ক কানেকশন ম্যানেজ করুন', size: '3.9 MB', link: 'https://gpwifi.vercel.app/app/unlink.apk', icon: 'U' }
+      { name: 'Unlink', cat: 'Utility', desc: 'নেটওয়ার্ক কানেকশন ম্যানেজ করুন', size: '3.9 MB', link: 'https://drive.google.com/uc?export=download&id=1klTD9nB4nZOMBXtAPYSyjXz8zLTheffn', icon: 'U' }
     ];
 
     const ftpData = [
-      '10.16.100.244', 'fs.ebox.live', '172.22.22.101/webhome', 'zflixbd.com', 'bokasoka.net', 'ftpbd.net', 'timepassbd.live', '172.17.50.240', 'moviehaat.net', 'discoveryftp.net', 'movies.discoveryftp.net', 'dflix.live', '172.16.50.4', 'new.circleftp.net', 'circleftp.net', 'moviemazic.xyz/movies.html'
+      'http://10.16.100.244/',
+      'http://fs.ebox.live/',
+      'http://172.22.22.101/webhome/',
+      'http://zflixbd.com/',
+      'http://bokasoka.net/',
+      'https://ftpbd.net/',
+      'http://timepassbd.live/',
+      'http://172.17.50.240/',
+      'https://moviehaat.net/',
+      'https://discoveryftp.net/',
+      'https://movies.discoveryftp.net/',
+      'http://dflix.live/',
+      'http://172.16.50.4/',
+      'http://new.circleftp.net/',
+      'http://circleftp.net/',
+      'http://moviemazic.xyz/movies.html'
     ];
 
     const tvData = [
@@ -1293,16 +1431,34 @@
         name: 'YouTube (Official)',
         type: 'Mobile', typeColor: 'mobile',
         size: '163 MB', date: 'Dec 2024',
-        link: 'https://drive.google.com/file/d/1_w6LL-T8c64BnHFlKc91_esaJEMyLFzF/view?usp=sharing',
+        link: 'https://drive.google.com/uc?export=download&id=1_w6LL-T8c64BnHFlKc91_esaJEMyLFzF',
         icon: 'Y',
         desc: 'Google এর অফিশিয়াল YouTube অ্যাপ। সাইন-ইন, Shorts, লাইভ ও সব ফিচার পাওয়া যায়।',
         minAndroid: 'Android 8.0+'
       },
       {
+        name: 'Vanced YouTube',
+        type: 'Mobile', typeColor: 'mobile',
+        size: 'Unknown', date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1O8dU-GQ2k2vX_pI56I7if9TVK2dpkY-2',
+        icon: 'V',
+        desc: 'বিজ্ঞাপনমুক্ত YouTube অভিজ্ঞতার জন্য Vanced YouTube অ্যাপ।',
+        minAndroid: 'Android 6.0+'
+      },
+      {
+        name: 'Vanced Manager',
+        type: 'Mobile', typeColor: 'mobile',
+        size: 'Unknown', date: 'Jun 2026',
+        link: 'https://drive.google.com/uc?export=download&id=1M3v6yUWAZEhfSRmhfY9VTDPc7aIMUxkv',
+        icon: 'V',
+        desc: 'Vanced অ্যাপ ইনস্টল ও ম্যানেজ করার জন্য Vanced Manager।',
+        minAndroid: 'Android 6.0+'
+      },
+      {
         name: 'NewPipe',
         type: 'Mobile', typeColor: 'mobile',
         size: '11.8 MB', date: 'Dec 2024',
-        link: 'https://archive.newpipe.net/fdroid/repo/NewPipe_v0.28.0.apk',
+        link: 'https://drive.google.com/uc?export=download&id=1E8w7Unn65VJrYWVwnGEYzLHfLbivjqPa',
         icon: 'N',
         desc: 'বিজ্ঞাপনমুক্ত YouTube। ব্যাকগ্রাউন্ড প্লে, ভিডিও ডাউনলোড ও কোনো Google Account ছাড়াই চলে।',
         minAndroid: 'Android 5.0+'
@@ -1329,7 +1485,7 @@
         name: 'Tubular',
         type: 'Mobile', typeColor: 'mobile',
         size: '11 MB', date: '2024',
-        link: 'https://github.com/polymorphicshade/Tubular/releases/latest/download/app-release.apk',
+        link: 'https://drive.google.com/uc?export=download&id=1zVvJ44-3Ux6GizvDGGlgtAiYZlp7XrSo',
         icon: 'T',
         desc: 'NewPipe + SponsorBlock একসাথে। বিজ্ঞাপন ও স্পনসর সেগমেন্ট দুটোই অটো স্কিপ হয়।',
         minAndroid: 'Android 5.0+'
@@ -1356,7 +1512,7 @@
         name: 'SmartTube (TV)',
         type: 'TV', typeColor: 'tv',
         size: '23 MB', date: '2024',
-        link: 'https://github.com/yuliskov/SmartTubeNext/releases/latest/download/smarttube_stable.apk',
+        link: 'https://drive.google.com/uc?export=download&id=1s0JEOR2eVHMwTaqV3ijmqgQxfqp143EE',
         icon: 'S',
         desc: 'Android TV তে বিজ্ঞাপনমুক্ত YouTube। রিমোট কন্ট্রোলে সম্পূর্ণ নেভিগেশন করা যায়।',
         minAndroid: 'Android 5.0+'
@@ -1413,7 +1569,7 @@
         name: 'SmartTube (YouTube TV)',
         size: '23 MB',
         date: '2024',
-        link: 'https://github.com/yuliskov/SmartTubeNext/releases/latest/download/smarttube_stable.apk',
+        link: 'https://drive.google.com/uc?export=download&id=1s0JEOR2eVHMwTaqV3ijmqgQxfqp143EE',
         icon: 'S',
         desc: 'পুরনো TV তে বিজ্ঞাপন ছাড়া YouTube দেখুন। Google Account ছাড়াও চলে।',
         minAndroid: 'Android 5.0+'
@@ -1496,6 +1652,29 @@
               <span>${tool.size}</span>
             </div>
             ${btnHtml}
+          </div>
+        `;
+      });
+    }
+
+    function renderLiveTvApps() {
+      const grid = document.getElementById('liveTvAppsGrid');
+      liveTvAppsData.forEach(app => {
+        grid.innerHTML += `
+          <div class="dl-card">
+            <div class="dl-header">
+              <div class="dl-icon">${app.icon}</div>
+              <div class="dl-info">
+                <h4>${app.name}</h4>
+                <span class="badge-app">Live TV App</span>
+              </div>
+            </div>
+            <div class="dl-desc">${app.desc}</div>
+            <div class="dl-meta">
+              <span>${app.size}</span>
+              <span>${app.date}</span>
+            </div>
+            <a href="${app.link}" target="_blank" class="btn btn-green">ডাউনলোড করুন &darr;</a>
           </div>
         `;
       });
@@ -1584,6 +1763,7 @@
     renderApps();
     renderYoutubeApps();
     renderTools();
+    renderLiveTvApps();
     renderOldTvApps();
     renderList(ftpData, 'ftpGrid');
     renderList(tvData, 'tvGrid', true);
