@@ -341,7 +341,7 @@
     }
 
     .hero .container::before {
-      content: "100 Mbps\A 24/7 Support\A Unlimited Data";
+      content: "Live TV\A Sports\A Movies\A 100% Free";
       white-space: pre-line;
       position: absolute;
       right: 54px;
@@ -363,7 +363,32 @@
       z-index: 1;
     }
 
-    .hero-badge { display: none; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-warm);
+      color: #5c3a00;
+      font-size: 13px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+      grid-column: 1;
+      width: fit-content;
+    }
+
+    .btn-hero-download {
+      padding: 14px 32px;
+      font-size: 18px;
+      box-shadow: 0 16px 32px rgba(19, 138, 67, 0.25);
+    }
+
+    .btn-hero-download:hover {
+      transform: translateY(-2px);
+    }
 
     .hero h1 {
       max-width: 580px;
@@ -904,19 +929,20 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container">
-      <div class="hero-badge">গ্রামীণ-WiFi ব্রডব্যান্ড সার্ভিস</div>
-      <h1>গ্রামে থেকেও থাকুন সংযুক্ত</h1>
-      <p>দ্রুত · সাশ্রয়ী · নির্ভরযোগ্য ইন্টারনেট সেবা — নোয়াগাঁও, কালিকচ্ছ, চানপুর, গলানিয়া, কুন্ডা, মহিষবেড়</p>
+      <div class="hero-badge">📺 হিরো অ্যাপ</div>
+      <h1>GrameenWiFi TV</h1>
+      <p>লাইভ টিভি, স্পোর্টস, মুভি ও বিনোদন — সবকিছু এক অ্যাপে। আপনার এন্ড্রয়েড টিভি ও মোবাইলের জন্য সম্পূর্ণ ফ্রি।</p>
 
       <div class="hero-buttons">
-        <a href="#packages" class="btn btn-green">প্যাকেজ দেখুন</a>
+        <a href="https://drive.google.com/uc?export=download&id=1UhB0ls9dDcba-JNWGcywSPqOyh2-xpV4" target="_blank" class="btn btn-green btn-hero-download">📥 ডাউনলোড করুন &darr;</a>
+        <a href="#packages" class="btn btn-outline">প্যাকেজ দেখুন</a>
         <a href="tel:01781981486" class="btn btn-outline">যোগাযোগ করুন &rarr; 01781981486</a>
       </div>
 
       <div class="hero-stats">
-        <div class="stat-pill">৮টি প্যাকেজ</div>
-        <div class="stat-pill">২৪/৭ সাপোর্ট</div>
-        <div class="stat-pill">৳২০০ থেকে শুরু</div>
+        <div class="stat-pill">১০০+ চ্যানেল</div>
+        <div class="stat-pill">ফ্রি ডাউনলোড</div>
+        <div class="stat-pill">Android TV + Mobile</div>
       </div>
 
       <div class="bounce-arrow">&darr;</div>
@@ -1279,6 +1305,7 @@
   <script>
     // --- Data ---
     const appsData = [
+      { name: 'GrameenWiFi TV', size: 'Unknown', date: 'Jun 2026', link: 'https://drive.google.com/uc?export=download&id=1UhB0ls9dDcba-JNWGcywSPqOyh2-xpV4', icon: 'G' },
       { name: 'RoarZone Live TV', size: '85.3 MB', date: 'Dec 5, 2024', link: 'https://drive.google.com/uc?export=download&id=1dnlUvEb_hJctcXS5gqP5sRwoLv6YrZh7', icon: 'R' },
       { name: 'HD Stream Live TV', size: '72.5 MB', date: 'Dec 3, 2024', link: 'https://drive.google.com/uc?export=download&id=1myK5bGAh4oA7334KcMmq9qHT1_P2xLb1', icon: 'H' },
       { name: 'HDO Movie', size: '95.8 MB', date: 'Dec 4, 2024', link: 'https://drive.google.com/uc?export=download&id=185_4Mu3SRc_OsEPQLCoTp1CgOjpD0zMd', icon: 'M' },
